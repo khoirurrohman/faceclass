@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'camera_page.dart';
+import 'screens/attendance/camera_screen.dart';
+import 'screens/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +33,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const CameraPage(),
+      home: const Dashboard(),
+      routes: {'/camera': (context) => const CameraScreen()},
     );
   }
 }
