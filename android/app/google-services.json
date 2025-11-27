@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "533963351798",
+    "project_id": "faceclass-a66ec",
+    "storage_bucket": "faceclass-a66ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533963351798:android:9ae4fcf8c0e7ac29bfeed7",
+        "android_client_info": {
+          "package_name": "com.example.faceclass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeE5YgsiQZGwkIJXQ6ymfR72uYGGzJwQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

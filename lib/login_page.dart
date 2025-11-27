@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,18 +13,36 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureText = true;
 
-  void _login() {
-    // Simple login logic
+  Future<void> _login() async {
+    // Firebase login logic
     String email = _emailController.text.trim();
     String password = _passwordController.text;
+    final messenger = ScaffoldMessenger.of(context);
     if (email.isEmpty || password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         const SnackBar(content: Text('Please enter both email and password')),
       );
       return;
     }
-    // For demo, just navigate
-    Navigator.pushReplacementNamed(context, '/dashboard');
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // Navigate to dashboard
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, '/dashboard');
+    } on FirebaseAuthException catch (e) {
+      String message;
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Wrong password provided.';
+      } else {
+        message = 'Login failed: ${e.message}';
+      }
+      messenger.showSnackBar(SnackBar(content: Text(message)));
+    }
   }
 
   @override
@@ -65,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                         border: Border.all(color: Color(0xFF556B2F), width: 3),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
+                            color: Color.fromRGBO(0, 0, 0, 0.2),
                             spreadRadius: 2,
                             blurRadius: 5,
                             offset: Offset(0, 3),
