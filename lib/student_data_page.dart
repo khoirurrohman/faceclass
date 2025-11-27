@@ -82,42 +82,58 @@ class StudentDataPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Data Siswa'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFF556B2F),
         foregroundColor: Colors.white,
       ),
-      body: ListView.builder(
-        itemCount: students.length,
-        itemBuilder: (context, index) {
-          final student = students[index];
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    student['name']!,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text('ID: ${student['id']}'),
-                  Text('Kelas: ${student['class']}'),
-                  Text('Email: ${student['email']}'),
-                  Text('Telepon: ${student['phone']}'),
-                ],
+      body: Container(
+        color: Color(0xFF556B2F),
+        child: ListView.builder(
+          itemCount: students.length,
+          itemBuilder: (context, index) {
+            final student = students[index];
+            return Card(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              elevation: 4,
+              color: Color(0xFFE8F5E8).withOpacity(0.8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-            ),
-          );
-        },
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      student['name']!,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFFA500),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'ID: ${student['id']}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      'Kelas: ${student['class']}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      'Email: ${student['email']}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      'Telepon: ${student['phone']}',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFE3F2FD), Color(0xFFF8BBD9)],
+            colors: [Color(0xFF556B2F), Color(0xFF4B5320)],
           ),
         ),
         child: Center(
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(24.0),
             child: Card(
               elevation: 8,
-              color: Colors.white,
+              color: Color(0xFFE8F5E8),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -56,14 +56,26 @@ class _LoginPageState extends State<LoginPage> {
                       width: 100,
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        gradient: LinearGradient(
+                          colors: [Colors.white, Color(0xFFE8F5E8)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black, width: 2),
+                        border: Border.all(color: Color(0xFF556B2F), width: 3),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
                       ),
                       child: const Icon(
-                        Icons.face,
-                        size: 60,
-                        color: Colors.blue,
+                        Icons.school,
+                        size: 70,
+                        color: Color(0xFF556B2F),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -78,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 8),
                     const Text(
                       'Smart Presence',
-                      style: TextStyle(fontSize: 16, color: Color(0xFFF8BBD9)),
+                      style: TextStyle(fontSize: 16, color: Color(0xFF556B2F)),
                     ),
                     const SizedBox(height: 40),
                     // Email field
@@ -91,11 +103,14 @@ class _LoginPageState extends State<LoginPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        prefixIcon: const Icon(Icons.email, color: Colors.blue),
+                        prefixIcon: const Icon(
+                          Icons.email,
+                          color: Color(0xFF556B2F),
+                        ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: const BorderSide(
-                            color: Colors.blue,
+                            color: Color(0xFF556B2F),
                             width: 2,
                           ),
                         ),
@@ -113,13 +128,16 @@ class _LoginPageState extends State<LoginPage> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        prefixIcon: const Icon(Icons.lock, color: Colors.blue),
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Color(0xFF556B2F),
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscureText
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Colors.blue,
+                            color: Color(0xFF556B2F),
                           ),
                           onPressed: () {
                             setState(() {
@@ -130,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                           borderSide: const BorderSide(
-                            color: Colors.blue,
+                            color: Color(0xFF556B2F),
                             width: 2,
                           ),
                         ),
@@ -145,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: _login,
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color(0xFF556B2F),
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -175,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
+                        foregroundColor: Color(0xFF556B2F),
                       ),
                       child: const Text('Forgot Password?'),
                     ),

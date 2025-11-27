@@ -67,9 +67,9 @@ class _DashboardPageState extends State<DashboardPage> {
           BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Rekap'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.blue[200],
-        backgroundColor: Colors.blue,
+        selectedItemColor: Color(0xFFCC5500),
+        unselectedItemColor: Colors.green,
+        backgroundColor: Colors.white,
         onTap: _onItemTapped,
       ),
     );
@@ -130,13 +130,13 @@ class _HomeDashboard extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFFE3F2FD),
+          color: Color(0xFFCC5500),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 48, color: Colors.blue),
+            Icon(icon, size: 48, color: Colors.green),
             const SizedBox(height: 8),
             Text(
               title,
